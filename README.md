@@ -1,4 +1,4 @@
-# framework
+# framework-springboot
 
 #### 项目介绍
 基于springboot的快速开发框架工具包
@@ -10,9 +10,10 @@
 - [x] druid监控
 - [x] 全局配置支持
 - [x] http请求封装API
+- [x] 缓存ecahe支持
 - [x] lib瘦身支持
 - [x] 常用工具包
-- [ ] 分库分表
+- [ ] 分库分表支持
 
 #### 软件架构
 springboot、druid、redis、jpa
