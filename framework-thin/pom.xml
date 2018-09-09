@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.framework.core</groupId>
+    <artifactId>framework-thin</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.framework.core</groupId>
+        <artifactId>framework-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- lib瘦身 -->
+                <configuration>
+                    <layout>ZIP</layout>
+                    <excludeGroupIds>
+                        javax.activation,
+                        antlr,
+                        org.aspectj,
+                        com.fasterxml,
+                        dom4j,
+                        net.sf.ehcache,
+                        javax.transaction,
+                        ognl,
+                        io.springfox,
+                        org.springframework.plugin,
+                        io.swagger,
+                        org.thymeleaf,
+                        org.apache.tomcat,
+                        org.unbescape,
+                        org.codehaus.groovy,
+                        com.google.guava,
+                        org.hibernate.common,
+                        org.hibernate.javax.persistence,
+                        org.jboss,
+                        org.jboss.spec.javax.transaction,
+                        redis.clients,
+                        javax.mail,
+                        org.mapstruct,
+                        mysql,
+                        org.yaml,
+                        nz.net.ultraq.thymeleaf,
+                        commons-io,
+                        org.apache.commons,
+                        commons-beanutils,
+                        org.springframework.boot,
+                        org.springframework,
+                        org.springframework.data,
+                        com.fasterxml.jackson.core,
+                        commons-beanutils,
+                        commons-codec,
+                        org.apache.tomcat.embed,
+                        org.hibernate,
+                        org.slf4j,
+                        com.fasterxml,
+                        commons-collections,
+                        ch.qos.logback,
+                        org.scala-lang,
+                        org.jboss.logging,
+                        javax.validation,
+                        org.thymeleaf,
+                        org.javassist,
+                        commons-lang,
+                        joda-time,
+                        org.apache.httpcomponents,
+                        com.alibaba,
+                        com.thoughtworks.xstream,
+                        org.apache.shiro,
+                        commons-logging
+                    </excludeGroupIds>
+                </configuration>
+            </plugin>
+
+            <!-- 这是spring boot devtool plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--fork :  如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
+                    <fork>true</fork>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>springloaded</artifactId>
+                        <version>1.2.6.RELEASE</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
