@@ -1,5 +1,7 @@
 package com.framework.core.db.bean;
 
+import com.framework.core.utils.helper.CodeEnum;
+
 public class RetMsg<T> {
     
     private boolean success = true;
@@ -18,17 +20,21 @@ public class RetMsg<T> {
         this.msg=msg;
     }
 	public static <T> RetMsg<T> success() {
-		return new RetMsg<T>(0, "success");
+		return new RetMsg<T>(0, "请求成功");
 	}
 
 	public static <T> RetMsg<T> success(T data) {
-		RetMsg<T> RetMsg = new RetMsg<T>(0, "success");
+		RetMsg<T> RetMsg = new RetMsg<T>(0, "请求成功");
 		RetMsg.setData(data);
 		return RetMsg;
 	}
 
 	public static <T> RetMsg<T> error(Integer code, String msg) {
 		return new RetMsg<T>(code, msg);
+	}
+	
+	public static <T> RetMsg<T> error(CodeEnum codeEnum) {
+		return new RetMsg<T>(codeEnum.getCode(), codeEnum.getDescr());
 	}
     
     public boolean isSuccess() {
