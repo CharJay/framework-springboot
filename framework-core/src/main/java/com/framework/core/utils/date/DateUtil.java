@@ -123,7 +123,7 @@ public class DateUtil {
 	/**
 	 * 根据format格式化String，返回Date
 	 * 
-	 * @param datastr
+	 * @param datestr
 	 * @param format
 	 * @return Date
 	 */
@@ -331,10 +331,28 @@ public class DateUtil {
 		int m = c.get(Calendar.MONTH);
 		return m+1;
 	}
-
+	/**
+	 * 获取季度
+	 * @param date
+	 * @return
+	 */
+	public static  Integer getQuarter(Date date) {
+		Integer month = getMonth(date);
+		Integer quarter=1;
+		if(month>=1&&month<=3){
+			quarter=1;
+		}else if(month>=4&&month<=6){
+			quarter=2;
+		}else if(month>=7&&month<=9){
+			quarter = 3;
+		}else if(month>=10&&month<=12){
+			quarter = 4;
+		}
+		return quarter;
+	}
 	/**
 	 * 获取年份
-	 * @param dateStart
+	 * @param date
 	 * @return
 	 */
 	public static  Integer getYear(Date date) {
@@ -345,7 +363,7 @@ public class DateUtil {
 	}
 	/**
 	 * 获取日期
-	 * @param dateStart
+	 * @param date
 	 * @return
 	 */
 	public static  Integer getDay(Date date) {
